@@ -13,14 +13,17 @@ import axios from 'axios';
 export default {
     data(){
         return{
-            nombre: ''
+            arrayJugadores:[],
+            nombre: '',
+            name: '',
+            scores: ''
         }
     },
     props:[
       "nombreJugadores"
     ],
      created(){
-        axios.get('http://localhost:3000/players?team')
+        axios.get('http://localhost:3000/players?team=' + this.nombreJugadores)
         .then(response =>{
             this.arrayJugadores = response.data;
         } )
@@ -28,7 +31,9 @@ export default {
     },
     envioJugadores(){
         let post = {
-            nombre: this.nombre
+            nombre: this.nombre,
+            name: this.name,
+            scores: this.scores
         };
         axios.post("http://localhost:3000/players?team", post)
     },

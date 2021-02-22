@@ -4,9 +4,7 @@
         <table>
             <tr class="tdd" v-for="(equipos, index) in arrayEquipos" :key="index">
                 <td> {{equipos.name}}</td>
-            </tr>
-            <tr>
-              <JugadoresEquipos :nombreJugadores="variable"/>
+                <td><JugadoresEquipos :nombreJugadores="equipos.name"/></td>
             </tr>
         </table>
         <button type="submit">Nuevo jugador</button>

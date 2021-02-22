@@ -1,23 +1,14 @@
 <template>
     <div class="nuevoJugador">
-        <form>
-            <fieldset>
-                <legend>Nuevo jugador</legend>
-                <input class="nombre" type="text" placeholder="nombre jugador"><br><br>
-                <input class="equipo" type="text" placeholder="equipo"><br><br>
-                <input class="goles" type="number" placeholder="goles"><br><br>
-                <button class="boton">Enviar</button>
-            </fieldset>
-        </form>
+        <NuevoJug></NuevoJug>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
-import JugadoresEquipos from '@/components/JugadoresEquipos'
+import NuevoJug from '@/components/NuevoJug'
 export default {
     components:{
-        JugadoresEquipos
+        NuevoJug
     }
 }
 </script>

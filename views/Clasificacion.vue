@@ -33,7 +33,6 @@ export default {
     name: 'Clasificacion',
     methods:{
         pasarNombre(dato){
-            console.log("padre pasa este dato: " + dato)
             this.variable = dato;
         }
     },
