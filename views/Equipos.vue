@@ -3,22 +3,32 @@
         <h1>Equipos</h1>
         <table>
             <tr class="tdd" v-for="(equipos, index) in arrayEquipos" :key="index">
-                <td> {{equipos.name}}</td>
-                <td><JugadoresEquipos :nombreJugadores="equipos.name"/></td>
+                <td> {{equipos.name}}
+                    <span>
+                        <ul class="lista" v-for="(jugadores, index) in arrayJugadores" :key="index">
+                            <li v-if="equipos.name == jugadores.team"> {{jugadores.name}} </li>
+                        </ul>
+                    </span>
+                </td>
             </tr>
         </table>
-        <button type="submit">Nuevo jugador</button>
+    </div>
+    <button class="boton" @click="mostrarComp">Nuevo jugador</button>
+
+    <div v-show="show">
+        <NuevoJug/>
     </div>
 </template>
 
 <script>
 import axios from "axios";
-import JugadoresEquipos from '@/components/JugadoresEquipos.vue'
+import NuevoJug from '@/components/NuevoJug.vue'
 export default {
     data(){
         return{
             arrayEquipos:[],
-            variable: ''
+            arrayJugadores:[],
+            show:false
         }
     },
      created(){
@@ -26,14 +36,35 @@ export default {
         .then(response =>{
             this.arrayEquipos = response.data;
         } )
+        .catch(response => alert("Errores: " + response.status)),
+    
+        axios.get('http://localhost:3000/players')
+        .then(response =>{
+            this.arrayJugadores = response.data;
+        } )
         .catch(response => alert("Errores: " + response.status));
     },
-    name: 'Equipos',
     components:{
-      JugadoresEquipos
+      NuevoJug
+    },
+    methods:{
+        mostrarComp: function(){
+            this.show = !this.show;
+        }
     }
 }
 </script>
 
 <style scoped>
+.equipos{
+    float: left;
+}
+.boton{
+    float: right;
+    margin-top: 200px;
+    margin-right: 200px;
+}
+.lista{
+    list-style: none;
+}
 </style>

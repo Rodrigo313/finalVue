@@ -63,7 +63,7 @@ export default {
         axios.put("http://localhost:3000/players/" + this.id, post)
      },
      borrarJugador(){
-        axios.delete("http://localhost:3000/players" + this.id);
+        axios.delete("http://localhost:3000/players/" + this.id);
      }
    }
 };

@@ -8,7 +8,7 @@
         </table>
     </div>
     <div class="componente">
-        <DatosJugadores :nombreEquipo="variable"></DatosJugadores>
+        <DatosJugadores class="comp2" :nombreEquipo="variable"></DatosJugadores>
     </div>
 </template>
 
@@ -46,6 +46,10 @@ export default {
 
 <style scoped>
     .clasificacion{
-        margin-right: 700px;
+        float: left;
+    }
+    .componente{
+        float: right;
+        margin-top: 200px;
     }
 </style>

@@ -2,9 +2,9 @@
     <div class="clasificacion">
       <h1 class="titulo">Clasificación</h1>
         <table class="tabla">
-            <tr class="tdd" v-for="(cadaElemento, nn) in array" :key="nn" @click="pasarNombre(cadaElemento.name)">
-                <td> {{cadaElemento.name}}</td>
-                <td>{{cadaElemento.points}}</td>
+            <tr v-for="(cadaElemento, nn) in array" :key="nn" @click="pasarNombre(cadaElemento.name)">
+                <td class="td"> {{cadaElemento.name}}</td>
+                <td class="tdd">{{cadaElemento.points}}</td>
             </tr>
         </table>
     </div>
@@ -46,7 +46,6 @@ export default {
 .clasificacion{
     width: 400px;
     height: 1000px;
-    float: right;
     margin-top: 100px;
     float: left;
 }
@@ -55,6 +54,6 @@ export default {
     width: 400px;
     height: 1000px;
     float: right;
-    margin-top: 100px;
+    margin-top: 200px;
 }
 </style>

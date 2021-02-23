@@ -24,9 +24,9 @@ export default {
             .then(response =>{
             this.arrayJugadores = response.data;
             } )
-        .catch(response => alert("Errores: " + response.status));
-     } 
-        },
+        .catch(response => alert("Errores: " + response.status))
+        }
+    },
         watch:{
             nombreEquipo(nuevo){ 
                 this.arrayJugadores = this.obtenerJugadores(nuevo);
